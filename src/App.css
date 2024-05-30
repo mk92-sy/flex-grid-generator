@@ -1,0 +1,199 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.header {
+  position: fixed;
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  background-color: #cbd3f0;
+  z-index: 1;
+}
+.header .config {
+  background-size: 20px;
+  background-image: url(./assets/icons/config.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0;
+  border: 0;
+  cursor: pointer;
+}
+.header .config:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.header .config.open {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.title {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  text-align: center;
+  z-index: 1;
+  background-color: #333;
+  color: #fff;
+  letter-spacing: -1px;
+  padding: 5px 10px;
+  border-radius: 0 0 10px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+}
+.title::after {
+  position: absolute;
+  left: 8px;
+  top: 7px;
+  width: 38px;
+  height: 20px;
+  background-color: #cf2164;
+  border-radius: 3px;
+  content: "";
+  z-index: -1;
+  transition: left 0.3s ease-in-out;
+}
+.title.flex::after {
+  left: 8px;
+}
+.title.grid::after {
+  left: 63px;
+}
+.aside {
+  position: fixed;
+  left: 0;
+  top: 36px;
+  width: 280px;
+  height: calc(100% - 36px);
+  padding: 10px;
+  background-color: #e5eafb;
+  transition: left 0.3s ease-in-out;
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+.aside.open {
+  left: 0;
+}
+.aside.close {
+  left: -280px;
+}
+.aside h2 label {
+  background-color: #eee;
+  cursor: pointer;
+}
+.aside h2 label:hover {
+  background-color: #9e9e9e;
+  color: #fff;
+}
+.aside .option-list {
+  margin-top: 10px;
+}
+.aside .option-list li {
+  display: flex;
+  justify-content: space-between;
+}
+.aside .option-list li > * {
+  width: 50%;
+}
+.aside .option-list li + li {
+  margin-top: 5px;
+}
+.contents {
+  display: flex;
+  flex: 1;
+  width: calc(100% - 280px);
+  height: calc(100% - 33px);
+  border-top: 1px solid #888;
+}
+.main {
+  position: fixed;
+  top: 36px;
+  right: 0;
+  flex: 1;
+  width: 100%;
+  height: calc(100% - 36px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: width 0.3s ease-in-out;
+}
+.main.aside-open {
+  width: calc(100% - 280px);
+  transform: translateX(0px);
+  transition: width 0.3s ease-in-out;
+}
+.layout {
+  position: relative;
+  width: calc(100% - 20px);
+  height: calc(100% - 50px);
+  padding: 0;
+  margin: 10px;
+  border: 1px solid #333;
+  background-color: #eee;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.layout.flex {
+  display: flex;
+}
+.layout.grid {
+  display: grid;
+}
+.layout .item {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px #f4aab9;
+  overflow: hidden;
+}
+.btn-wrap {
+  display: flex;
+  height: 50px;
+  margin: 0 10px 10px;
+}
+.btn-wrap button {
+  flex: 1;
+  border: 0;
+  min-width: 125px;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 8px;
+  background-color: #e5eafb;
+}
+.btn-wrap button + button {
+  margin-left: 10px;
+}
+.btn-wrap button:hover {
+  background-color: #a1b2e9;
+}
+.btn-wrap button:disabled,
+.btn-wrap button:disabled:hover {
+  cursor: not-allowed;
+  background-color: #eee;
+}
+
+@media screen and (max-width: 720px) {
+  .aside .option-list li {
+    flex-direction: column;
+  }
+  .aside .option-list li > * {
+    width: 100%;
+  }
+}
