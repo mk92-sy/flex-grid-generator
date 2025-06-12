@@ -1,8 +1,12 @@
-# React + Vite
+## 🎛️ Flex-Grid Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Flex-Grid Generator**는 CSS의 `flex`와 `grid` 레이아웃을 시각적으로 조작하고,  
+원하는 스타일을 빠르게 실험할 수 있도록 도와주는 웹 도구입니다.
 
-Currently, two official plugins are available:
+- 💡 실시간 프리뷰로 레이아웃 변화를 즉시 확인
+- 🎨 `flex`, `grid` 각각의 항목 스타일까지 세부 조정 가능
+- ⚙️ 반복 실험에 최적화된 직관적인 인터페이스
+- 🔧 완성된 스타일을 코드 형태로 손쉽게 복사
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+디자인에서 코딩까지의 간극을 줄여주는 실험형 웹앱입니다.  
+웹 레이아웃에 대한 감각을 키우고 싶은 누구에게나 추천!
