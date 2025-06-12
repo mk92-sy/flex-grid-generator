@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import { useToggle } from "./context/ToggleContext";
+import Header from "./components/Header";
 
 function App() {
+  const { toggle, isFlex } = useToggle();
   const [combinedStyle, setCombinedStyle] = useState({});
   const [itemLength, setItemLength] = useState(9);
-  const [asideOpen, setAsideOpen] = useState(true);
-  const [isFlex, setIsFlex] = useState(true);
+
   const [flexStyle, setFlexStyle] = useState({
     flexDirection: "row",
     flexWrap: "wrap",
@@ -73,25 +74,8 @@ function App() {
 
   return (
     <>
-      <header className="header">
-        <button
-          className={`config ${asideOpen ? "open" : ""}`}
-          onClick={() => {
-            setAsideOpen(!asideOpen);
-          }}
-        >
-          설정
-        </button>
-        <h1
-          className={`title ${isFlex ? "flex" : "grid"}`}
-          onClick={() => {
-            setIsFlex(!isFlex);
-          }}
-        >
-          FLEX & GRID
-        </h1>
-      </header>
-      <aside className={`aside ${asideOpen ? "open" : "close"}`}>
+      <Header />
+      <aside className={`aside ${toggle ? "open" : "close"}`}>
         <section className="section">
           <h2>
             {isFlex ? "Flex" : "Grid"}
@@ -433,7 +417,7 @@ function App() {
           </ul>
         </section>
       </aside>
-      <main className={`main ${asideOpen ? "aside-open" : ""}`}>
+      <main className={`main ${toggle ? "aside-open" : ""}`}>
         <div
           className={`layout ${isFlex ? "flex" : "grid"}`}
           style={isFlex ? flexStyle : gridStyle}
